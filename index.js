@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const license = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -36,8 +38,8 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Link your Github Repository',
-        name: 'repo',
+        message: 'Link your Github',
+        name: 'github',
     },
     {
         type: 'input',
@@ -48,6 +50,18 @@ const questions = [
         type: 'input',
         message: 'Explain how to reach you if a user has questions.',
         name: 'contact',
+    },
+    {
+        type: 'list',
+        message: 'Choose a License',
+        name: 'chosenlicense',
+        choices: ['Apache', 'Boost','Creative Commons'],
+    },
+    {
+        type: 'list',
+        message: 'Do you want contributions?',
+        name: 'contr',
+        choices: ['I do not want contributions', 'I am open to contributions. Contact me.'],
     }
 ];
 
@@ -56,7 +70,9 @@ const inputInfo = inquirer
     .then((response) => {
         console.log(response);
         var README = generatedREADME(response);
-        console.log(README)
+        // var licenseEl = license(response.chosenlicense);
+        console.log(README);
+        // console.log(licenseEl);
         fs.writeFile('generatedREADME.md', README, (err) => {
             err ? console.log(err) : console.log('README.md Written!')
         })
@@ -73,6 +89,8 @@ Table of Contents
     [Usage](#usage)
     [Built With](#built-with)
     [Questions](#questions)
+    [Contributions](#contributions)
+    [License](#${response.chosenlicense})
 
     ${response.uses}
 ## Description
@@ -83,13 +101,11 @@ Table of Contents
     ${response.lang}
 ## Questions
     ${response.username}
-    ${response.repo}
+    [Github Profile](${response.github})
     ${response.email}
-    ${response.contact}`
+    ${response.contact}
+## Contributions
+    ${response.contr}
+${generateMarkdown(response.chosenlicense)}`
 };
 
-// TODO: Create a function to initialize app
-// function init() {}
-
-// Function call to initialize app
-// init();
