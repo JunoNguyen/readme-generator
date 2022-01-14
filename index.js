@@ -85,12 +85,12 @@ const generatedREADME = function(response){
     return `# ${response.title}\n
 Table of Contents
 =================
-    [Description](#description)
-    [Usage](#usage)
-    [Built With](#built-with)
-    [Questions](#questions)
-    [Contributions](#contributions)
-    [License](#${response.chosenlicense})
+[Description](#description)\n
+[Usage](#usage)\n
+[Built With](#built-with)\n
+[Questions](#questions)\n
+[Contributions](#contributions)\n
+[License](#${response.chosenlicense})\n
 
     ${response.uses}
 ## Description
