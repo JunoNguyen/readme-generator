@@ -10,7 +10,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Explain the reason for your code. (As a developer)',
+        message: 'Explain why you created this code.',
         name: 'uses',
     },
     {
@@ -20,8 +20,34 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Explain how to use your code.',
+        message: 'Explain how to use and install your code.',
         name: 'explain',
+    },
+    {
+        type: 'checkbox',
+        message: 'What Languages did you use?',
+        name: 'lang',
+        choices: ['HTML', 'CSS', 'Javscript'],
+    },
+    {
+        type: 'input',
+        message: 'What is your Github Username?',
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: 'Link your Github Repository',
+        name: 'repo',
+    },
+    {
+        type: 'input',
+        message: 'Enter your Email.',
+        name: 'email',
+    },
+    {
+        type: 'input',
+        message: 'Explain how to reach you if a user has questions.',
+        name: 'contact',
     }
 ];
 
@@ -40,18 +66,26 @@ const inputInfo = inquirer
 // function writeToFile(fileName, data) {}
 // fs.writeFile('generatedREADME.md', generateREADME)
 const generatedREADME = function(response){
-    return `# ${response.title}
-    \n
+    return `# ${response.title}\n
+Table of Contents
+=================
+    [Description](#description)
+    [Usage](#usage)
+    [Built With](#built-with)
+    [Questions](#questions)
+
     ${response.uses}
-    \n
-    ## Description
-    \n
+## Description
     ${response.desc}
-    \n
-    ## Usage
-    \n
+## Usage
     ${response.explain}
-    `
+## Built With
+    ${response.lang}
+## Questions
+    ${response.username}
+    ${response.repo}
+    ${response.email}
+    ${response.contact}`
 };
 
 // TODO: Create a function to initialize app
