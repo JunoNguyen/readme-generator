@@ -14,6 +14,8 @@ Table of Contents
 
 [License](#Apache)
 
+[Link to Repo](https://github.com/JunoNguyen/readme-generator)
+
 
     AS a developer, I want to write professional README.md files SO I can better explain my purpose and code to my audience.
 ## Description
@@ -23,9 +25,10 @@ Table of Contents
 ## Built With
     Javscript
 ## Questions
+[Github Profile](github.com/JunoNguyen)<br>
+junonguyen27@gmail.com
+
     JunoNguyen
-    [Github Profile](github.com/JunoNguyen)
-    junonguyen27@gmail.com
     Email me.
 ## Contributions
     I do not want contributions

@@ -43,6 +43,16 @@ const questions = [
     },
     {
         type: 'input',
+        message: 'Link your Github repo.',
+        name: 'repo',
+    },
+    {
+        type: 'input',
+        message: 'Link your Github pages link if you have one.',
+        name: 'pages',
+    },
+    {
+        type: 'input',
         message: 'Enter your Email.',
         name: 'email',
     },
@@ -91,18 +101,20 @@ Table of Contents
 [Questions](#questions)\n
 [Contributions](#contributions)\n
 [License](#${response.chosenlicense})\n
+[Link to Repo](${response.repo})
 
     ${response.uses}
 ## Description
     ${response.desc}
 ## Usage
+[Github Pages]${response.pages}<br>
     ${response.explain}
 ## Built With
     ${response.lang}
 ## Questions
+[Github Profile](${response.github})<br>
+${response.email}<br>
     ${response.username}
-    [Github Profile](${response.github})
-    ${response.email}
     ${response.contact}
 ## Contributions
     ${response.contr}
